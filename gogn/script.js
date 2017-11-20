@@ -1,4 +1,12 @@
-getVideos();
+init();
+function init(){
+  getVideos(function(response) {
+    // Parse JSON string into object
+      var vids = JSON.parse(response);
+      console.log(vids.categories, vids.videos);
+      setVideos(vids.categories, vids.videos);
+   });
+ }
 
 function getAge(age){
   var ageInHours = age / 1000 / 3600;
@@ -15,31 +23,19 @@ function getAge(age){
   return "Fyrir " + age + " klukkustund/klukkustundum síðan"
 }
 
-function getVideos(){
-    var data = JSON.parse();
-    setVideos(data.categories, data.videos);
-
+function getVideos(callback){
     var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
+        xobj.overrideMimeType("application/json");
     xobj.open('GET', 'videos.json', true);
     xobj.onreadystatechange = function () {
-      if (xobj.readyState == 4 && xobj.status == 200) {
-        callback(xobj.responseText);
-      }
-    }
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(xobj.responseText);
+          }
+    };
     xobj.send(null);
-
-    }
-
-// Call to function with anonymous callback
-loadJSON(function(response) {
-  data = JSON.parse(response);
-
-  console.log(data[0].id);
 }
 
 
 function setVideos(categories, videos){
-  console.log("selur");
-  console.log(videos.id);
+  console.log(videos[0]);
 }
