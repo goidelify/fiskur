@@ -1,0 +1,40 @@
+$max-width: 1200px;
+$gutter: 20px;
+
+*, *:before, *:after { /* stylelint-disable-line */
+  box-sizing: inherit;
+  background-color: rgb(40, 40, 40);
+
+  /* fjarlægjum margin og padding */
+  padding: 0;
+  margin: 0;
+}
+
+html { /* stylelint-disable-line */
+  margin-right: $gutter;
+  margin-left: $gutter;
+  box-sizing: border-box;
+
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+}
+
+
+img { /* stylelint-disable-line */
+  //max-width: 100%;
+}
+
+main { /* stylelint-disable-line */
+  margin: 0 auto;
+
+  // þar sem við erum að eiga við neikvæð margin á grid, setjum overflow-x
+  // hér sem hidden, þá fáum við ekki lárétta skrunstiku
+  overflow-x: hidden;
+}
+
+@import "grid";
+@import "video";
+@import "category";
+@import "body";
