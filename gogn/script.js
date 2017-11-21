@@ -78,6 +78,17 @@ function addVideo(id){
   vid.src = videos[id].video;
   vid.poster = videos[id].poster;
   vid.className = "video";
+  vid.style.zIndex = "1";
+
+  var vidDuration = document.createElement('p');
+  vidDuration.innerHTML = getDuration(videos[id].duration);
+  vidDuration.style.zIndex = "2";
+  vidDuration.style.position = "absolute";
+  vidDuration.style.marginLeft = "20px";
+  vidDuration.style.marginTop = "20px";
+  vidDuration.style.backgroundColor = "rgba(0, 0, 0, 0.5)"
+  vidDuration.style.padding = "4px";
+  vidDuration.style.borderRadius = "4px";
 
   var vidName = document.createElement('p');
   vidName.innerHTML = videos[id].title;
@@ -87,9 +98,27 @@ function addVideo(id){
   vidAge.innerHTML = getAge(videos[id].created);
   vidAge.className = "age";
 
+  vidDiv.appendChild(vidDuration);
   vidDiv.appendChild(vid);
   vidDiv.appendChild(vidName);
   vidDiv.appendChild(vidAge);
 
   return vidDiv;
+}
+
+function getDuration(duration){
+  var sec;
+  var min;
+
+  if((duration%60) >= 10)
+    sec = duration%60;
+  else
+    sec = "0" + duration%60;
+
+  if((Math.floor(duration/60)) >= 10)
+    min = Math.floor(duration/60);
+  else
+    min = "0" + Math.floor(duration/60);
+
+  return min + ":" + sec;
 }
