@@ -1,5 +1,7 @@
-.category{
-  border-bottom: 2px solid rgb(100, 100, 100);
-  margin-bottom: 60px;
-  padding-bottom: 30px;
+.category:after {
+    content:'';
+    height: 1px;
+    width: 80%;
+    margin: 30px auto 30px auto;
+    background-color: rgb(100, 100, 100);
 }

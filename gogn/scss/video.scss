@@ -3,5 +3,8 @@
 }
 .caption{
   font-weight: bold;
-  width: 50%;
+  width: 100%;
+  max-height: 3.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

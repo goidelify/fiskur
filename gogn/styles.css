@@ -79,9 +79,19 @@ main {
 
 .caption {
   font-weight: bold;
-  width: 50%; }
+  width: 100%;
+  max-height: 3.2em;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
-.category {
-  border-bottom: 2px solid #646464;
-  margin-bottom: 60px;
-  padding-bottom: 30px; }
+.category:after {
+  content: '';
+  height: 1px;
+  width: 80%;
+  margin: 30px auto 30px auto;
+  background-color: #646464; }
+
+.heading-h1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 10px; }

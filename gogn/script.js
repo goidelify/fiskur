@@ -56,15 +56,15 @@ function addCategory(category){
   var row = document.createElement('div');
   row.className = 'category row';
 
-  for(var i = 0; i < category.videos.length; i++){
-    var empty = document.createElement('div');
-    empty.className = 'col-2';
+  var categoryName = document.createElement('heading');
+  categoryName.innerHTML = category.title;
+  categoryName.className = 'heading-h1 col col-12';
 
+  row.appendChild(categoryName);
+
+  for(var i = 0; i < category.videos.length; i++){
     var newVid = addVideo(category.videos[i]-1);
     row.appendChild(newVid);
-    if(i%2 == 0){
-      row.appendChild(empty);
-    }
   }
   return row;
 
@@ -72,7 +72,7 @@ function addCategory(category){
 
 function addVideo(id){
   var vidDiv = document.createElement('div');
-  vidDiv.className = "col-5";
+  vidDiv.className = "col col-6";
 
   var vid = document.createElement('video');
   vid.src = videos[id].video;
