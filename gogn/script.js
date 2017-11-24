@@ -103,6 +103,11 @@ function addVideo(id){
   vidDiv.appendChild(vidName);
   vidDiv.appendChild(vidAge);
 
+  vidDiv.addEventListener('click', function(){
+    window.location.href = "player.html?id=" +
+    id;
+  });
+
   return vidDiv;
 }
 
