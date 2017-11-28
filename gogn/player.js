@@ -87,4 +87,12 @@ function init(){
       addedVid.webkitRequestFullscreen();
     }
    });
+   //Set next buttons
+   document.querySelector('.next').addEventListener('click', function(){
+     addedVid.currentTime += 3;
+   });
+   //Set back button
+   document.querySelector('.back').addEventListener('click', function(){
+     addedVid.currentTime -= 3;
+   });
  }
